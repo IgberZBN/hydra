@@ -4,6 +4,7 @@ import { Button, CheckboxField, TextField } from "@renderer/components";
 import * as styles from "./settings.css";
 import { useTranslation } from "react-i18next";
 import { UserPreferences } from "@types";
+import ThemesList from "@renderer/components/theme/theme";
 
 export function Settings() {
   const [form, setForm] = useState({
@@ -11,9 +12,10 @@ export function Settings() {
     downloadNotificationsEnabled: false,
     repackUpdatesNotificationsEnabled: false,
     telemetryEnabled: false,
-    preferQuitInsteadOfHiding: false,
-    runAtStartup: false,
   });
+
+
+  const [themes, setThemes] = useState([]);
 
   const { t } = useTranslation("settings");
 
@@ -21,6 +23,7 @@ export function Settings() {
     Promise.all([
       window.electron.getDefaultDownloadsPath(),
       window.electron.getUserPreferences(),
+      fetchThemes()
     ]).then(([path, userPreferences]) => {
       setForm({
         downloadsPath: userPreferences?.downloadsPath || path,
@@ -29,12 +32,20 @@ export function Settings() {
         repackUpdatesNotificationsEnabled:
           userPreferences?.repackUpdatesNotificationsEnabled ?? false,
         telemetryEnabled: userPreferences?.telemetryEnabled ?? false,
-        preferQuitInsteadOfHiding:
-          userPreferences?.preferQuitInsteadOfHiding ?? false,
-        runAtStartup: userPreferences?.runAtStartup ?? false,
       });
     });
   }, []);
+
+  async function fetchThemes() {
+    try {
+      const response = await fetch('http://localhost:3000/themes');
+      const data = await response.json();
+      setThemes(data);
+    } catch (error) {
+      console.error('Erro ao buscar os temas:', error);
+    }
+  }
+
 
   const updateUserPreferences = <T extends keyof UserPreferences>(
     field: T,
@@ -113,27 +124,10 @@ export function Settings() {
           }
         />
 
-        <h3>{t("behavior")}</h3>
+        <h3>Themes</h3>
 
-        <CheckboxField
-          label={t("quit_app_instead_hiding")}
-          checked={form.preferQuitInsteadOfHiding}
-          onChange={() =>
-            updateUserPreferences(
-              "preferQuitInsteadOfHiding",
-              !form.preferQuitInsteadOfHiding
-            )
-          }
-        />
+        <ThemesList themes={themes} />
 
-        <CheckboxField
-          label={t("launch_with_system")}
-          onChange={() => {
-            updateUserPreferences("runAtStartup", !form.runAtStartup);
-            window.electron.autoLaunch(!form.runAtStartup);
-          }}
-          checked={form.runAtStartup}
-        />
       </div>
     </section>
   );

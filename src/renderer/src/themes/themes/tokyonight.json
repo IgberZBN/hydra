@@ -1,0 +1,12 @@
+
+  {
+    "name": "Tokyonight",
+    "createdBy": "Igber",
+    "scheme": {
+      "font": "#c0caf5",
+      "background": "#1a1b26",
+      "darkBackground": "#1f2336",
+      "border": "#32333e",
+      "muted": "#7aa2f7"
+    }
+  }

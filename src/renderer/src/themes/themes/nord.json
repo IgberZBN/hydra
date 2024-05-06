@@ -1,0 +1,11 @@
+  {
+    "name": "Nord",
+    "createdBy": "Igber",
+    "scheme": {
+      "font": "#abb2bf",
+      "background": "#2E3440",
+      "darkBackground": "#343a46",
+      "border": "#414753",
+      "muted": "#7797b7"
+    }
+  }

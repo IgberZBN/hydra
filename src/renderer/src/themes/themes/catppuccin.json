@@ -1,0 +1,12 @@
+
+  {
+    "name": "Catppuccin",
+    "createdBy": "Igber",
+    "scheme": {
+      "font": "#D9E0EE",
+      "background": "#1E1D2D",
+      "darkBackground": "#252434",
+      "border": "#383747",
+      "muted": "#89B4FA"
+    }
+  }

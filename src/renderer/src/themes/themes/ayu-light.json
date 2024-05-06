@@ -1,0 +1,11 @@
+{
+    "name": "Ayu-light",
+    "createdBy": "Igber",
+    "scheme": {
+      "font": "#26292f",
+      "background": "#fafafa",
+      "darkBackground": "#efefef",
+      "border": "#e1e1e1",
+      "muted": "#5C6166"
+    }
+  }

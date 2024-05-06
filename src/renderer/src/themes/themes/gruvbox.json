@@ -1,0 +1,11 @@
+  {
+    "name": "Gruvbox",
+    "createdBy": "Igber",
+    "scheme": {
+      "font": "#ebdbb2",
+      "background": "#282828",
+      "darkBackground": "#2e2e2e",
+      "border": "#414753",
+      "muted": "#749689"
+    }
+  }
