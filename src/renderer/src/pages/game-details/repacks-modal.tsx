@@ -44,12 +44,17 @@ export function RepacksModal({
   };
 
   const handleFilter: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const term = event.target.value.toLocaleLowerCase();
+
     setFilteredRepacks(
-      gameDetails.repacks.filter((repack) =>
-        repack.title
-          .toLowerCase()
-          .includes(event.target.value.toLocaleLowerCase())
-      )
+      gameDetails.repacks.filter((repack) => {
+        const lowerCaseTitle = repack.title.toLowerCase();
+        const lowerCaseRepacker = repack.repacker.toLowerCase();
+
+        return [lowerCaseTitle, lowerCaseRepacker].some((value) =>
+          value.includes(term)
+        );
+      })
     );
   };
 
@@ -84,7 +89,9 @@ export function RepacksModal({
               <p style={{ color: "#DADBE1" }}>{repack.title}</p>
               <p style={{ fontSize: "12px" }}>
                 {repack.fileSize} - {repackersFriendlyNames[repack.repacker]} -{" "}
-                {format(repack.uploadDate, "dd/MM/yyyy")}
+                {repack.uploadDate
+                  ? format(repack.uploadDate, "dd/MM/yyyy")
+                  : ""}
               </p>
             </Button>
           ))}

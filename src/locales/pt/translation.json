@@ -1,7 +1,7 @@
 {
   "home": {
     "featured": "Destaque",
-    "recently_added": "Novidades",
+    "recently_added": "Recém adicionados",
     "trending": "Populares",
     "surprise_me": "Surpreenda-me",
     "no_results": "Nenhum resultado encontrado"
@@ -64,6 +64,8 @@
     "copied_link_to_clipboard": "Link copiado",
     "hours": "horas",
     "minutes": "minutos",
+    "amount_hours": "{{amount}} horas",
+    "amount_minutes": "{{amount}} minutos",
     "accuracy": "{{accuracy}}% de precisão",
     "add_to_library": "Adicionar à biblioteca",
     "remove_from_library": "Remover da biblioteca",
@@ -130,7 +132,10 @@
     "enable_download_notifications": "Quando um download for concluído",
     "enable_repack_list_notifications": "Quando a lista de repacks for atualizada",
     "telemetry": "Telemetria",
-    "telemetry_description": "Habilitar estatísticas de uso anônimas"
+    "telemetry_description": "Habilitar estatísticas de uso anônimas",
+    "behavior": "Comportamento",
+    "quit_app_instead_hiding": "Fechar o aplicativo em vez de minimizá-lo",
+    "launch_with_system": "Iniciar aplicativo na inicialização do sistema"
   },
   "notifications": {
     "download_complete": "Download concluído",

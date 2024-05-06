@@ -28,7 +28,7 @@ export interface SteamAppDetails {
     minimum: string;
     recommended: string;
   };
-  linux_requirmenets: {
+  linux_requirements: {
     minimum: string;
     recommended: string;
   };
@@ -105,6 +105,8 @@ export interface UserPreferences {
   downloadNotificationsEnabled: boolean;
   repackUpdatesNotificationsEnabled: boolean;
   telemetryEnabled: boolean;
+  preferQuitInsteadOfHiding: boolean;
+  runAtStartup: boolean;
 }
 
 export interface HowLongToBeatCategory {
